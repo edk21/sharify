@@ -9,8 +9,6 @@ import { useSession } from 'next-auth/react'
 import classes from './createBlog.module.css'
 
 const CreateBlog = () => {
-    const CLOUD_NAME = 'doojo83ea'
-    const UPLOAD_PRESET = 'my_blog_project_webdevmania'
 
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')

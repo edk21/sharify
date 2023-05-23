@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import classes from './navbar.module.css'
-import person from '../../../public/person.jpg'
+import person from '../../../public/person.jpeg'
 import { AiOutlineClose } from 'react-icons/ai'
 import {signIn, signOut, useSession} from 'next-auth/react'
 
@@ -21,14 +21,14 @@ const Navbar = () => {
     <div className={classes.container}>
       <div className={classes.wrapper}>
         <h2 className={classes.left}>
-          <Link href="/">WebDevMania</Link>
+          <Link href="/">ShariFy</Link>
         </h2>
         <ul className={classes.right}>
           {
             session?.user
               ? (
                 <div>
-                  <Image onClick={handleShowDropdown} src={person} width='45' height='45' />
+                  <Image onClick={handleShowDropdown} src={person} width='45' height='45' alt="" />
                   {showDropdown && (
                     <div className={classes.dropdown}>
                       <AiOutlineClose className={classes.closeIcon} onClick={handleHideDropdown} />
