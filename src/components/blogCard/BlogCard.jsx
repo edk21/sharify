@@ -3,9 +3,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import classes from './blogCard.module.css'
 import { useSession } from 'next-auth/react'
 import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
-import classes from "./BlogCard.module.css"
 
 const BlogCard = ({ blog: { title, desc, imageUrl, likes, authorId, _id } }) => {
   const { data: session } = useSession()
@@ -46,7 +46,7 @@ const BlogCard = ({ blog: { title, desc, imageUrl, likes, authorId, _id } }) => 
     <div className={classes.container}>
       <div className={classes.wrapper}>
         <Link className={classes.imgContainer} href={`/blog/${_id}`}>
-          <Image src={imageUrl} width="350" height="350" alt="" />
+          <Image src={imageUrl} width="350" height="350" />
         </Link>
         <div className={classes.blogData}>
           <div className={classes.left}>

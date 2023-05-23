@@ -20,7 +20,7 @@
 
 .wrapper > form{
     margin-top: 2rem;
-    width: 50%;
+    width: 20%;
     padding: 1.5rem;
     border: 1px solid #666;
     border-radius: 8px;
@@ -28,7 +28,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: .5rem;
+    gap: 2rem;
 }
 
 .wrapper > form > input,
@@ -38,7 +38,6 @@
     border-bottom: 1px solid #666;
     padding: 0.4rem;
     resize: none;
-    width: 200px;
 }
 
 .wrapper > form > select{
@@ -63,7 +62,7 @@
 }
 
 .createBlog{
-    margin-top: 1rem;
+    margin-top: 2.5rem;
     outline: none;
     border: 1px solid transparent;
     padding: 0.5rem 1.25rem;

@@ -7,7 +7,6 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/navigation'
 import { AiOutlineFileImage } from 'react-icons/ai'
-import Loading from '@/components/loading/Loading'
 
 const Edit = (ctx) => {
     const CLOUD_NAME = 'doojo83ea'
@@ -33,7 +32,7 @@ const Edit = (ctx) => {
     }, [])
 
     if (status === 'loading') {
-        return <Loading />
+        return <p>Loading...</p>
     }
 
     if (status === 'unauthenticated') {
@@ -92,10 +91,10 @@ const Edit = (ctx) => {
         const formData = new FormData()
 
         formData.append("file", photo)
-        formData.append("upload_preset", UPLOAD_PRESET)
+        formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET)
 
         try {
-            const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+            const res = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUD_NAME}/image/upload`, {
                 method: "POST",
                 body: formData
             })
@@ -119,13 +118,11 @@ const Edit = (ctx) => {
                     <input value={title} type="text" placeholder='Title...' onChange={(e) => setTitle(e.target.value)} />
                     <textarea value={desc} placeholder='Description...' onChange={(e) => setDesc(e.target.value)} />
                     <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                        <option value="Nextjs"></option>
-                        <option value="Reactjs"></option>
-                        <option value="Javascript"></option>
-                        <option value="Css/Sass"></option>
-                        <option value="WebDev"></option>
-                        <option value="ChatGPT"></option>
-                        <option value="Tips"></option>
+                        <option value="Nature">Nature</option>
+                        <option value="Mountain">Mountain</option>
+                        <option value="Ocean">Ocean</option>
+                        <option value="Wildlife">Wildlife</option>
+                        <option value="Forest">Forest</option>
                     </select>
                     <label htmlFor='image'>
                         Upload Image <AiOutlineFileImage />

@@ -1,4 +1,4 @@
-import db from "@/lib/conns";
+import db from "@/lib/db";
 import { verifyJwtToken } from "@/lib/jwt";
 import Comment from "@/models/Comment";
 

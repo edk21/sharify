@@ -1,4 +1,4 @@
-import db from "@/lib/conns";
+import db from "@/lib/db";
 import { verifyJwtToken } from "@/lib/jwt";
 import Blog from "@/models/Blog";
 import User from "@/models/User";
@@ -73,3 +73,8 @@ export async function DELETE(req, ctx) {
         return new Response(JSON.stringify(null), { status: 500 }) 
     }
 }
+
+// blog -> [id] -> like -> route.js
+
+
+// http://localhost:3000/api/blog/someid/like

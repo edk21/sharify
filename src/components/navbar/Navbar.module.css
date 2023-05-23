@@ -1,4 +1,4 @@
-.container {
+.container{
     position: sticky;
     z-index: 999;
     height: 60px;
@@ -12,7 +12,7 @@
     left: 0;
 }
 
-.wrapper {
+.wrapper{
     width: 85%;
     margin: 0 auto;
     display: flex;
@@ -21,26 +21,26 @@
     position: relative;
 }
 
-.left {
-    font-size: 2.25rem;
+.left{
+    font-size: 36px;
     color: rgb(26, 180, 26);
 }
 
-.right {
+.right{
     display: flex;
     align-items: center;
     gap: 1.25rem;
 }
 
-.right > div > img {
+.right > div > img{
     object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.logout {
+.logout{
     margin-left: 1rem;
-    padding: .4rem 1rem;
+    padding: 0.4rem 1rem;
     border: none;
     color: #fff;
     border-radius: 8px;
@@ -48,38 +48,25 @@
     font-size: 17px;
     background-color: #10c142;
 }
-.logout:hover {
-    background-color: #066621;
-}
 
-.create, .register {
+.create{
     color: #444;
     font-size: 18px;
     font-weight: 300;
-    padding: .4rem 1rem;
-}
-.create:hover, .register:hover {
-    background-color: #10c142;
-    color: #fff;
-    border-radius: 8px;
-    border: none;
-    padding: .4rem 1rem;
 }
 
-.login {
+.login{
     outline: none;
     border: none;
-    padding: .5rem 1.25rem;
+    padding: 0.5rem 1.25rem;
     font-size: 17px;
-    background-color: #10C142;
+    background-color: #10c142;
     color: #fff;
     border-radius: 12px;
-}
-.login:hover {
-    background-color: #066621;
+    cursor: pointer;
 }
 
-.dropdown {
+.dropdown{
     position: absolute;
     background-color: #efefef;
     padding: 1rem;
@@ -92,7 +79,7 @@
     border-radius: 8px;
 }
 
-.dropdown > :nth-child(2) {
+.dropdown > :nth-child(2){
     margin-top: 1rem;
 }
 
@@ -100,8 +87,8 @@
     cursor: pointer;
 }
 
-.closeIcon {
+.closeIcon{
     position: absolute;
-    top: .3rem;
-    right: .3rem;
+    top: 0.3rem;
+    right: 0.3rem;
 }

@@ -3,13 +3,15 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import classes from './blog.module.css'
-import { AiFillDelete, AiFillLike, AiOutlineLike, AiFillEdit } from 'react-icons/ai'
+import { BsFillPencilFill } from 'react-icons/bs'
+import { AiFillDelete, AiFillLike, AiOutlineLike } from 'react-icons/ai'
 import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { format } from 'timeago.js'
 import { useRouter } from 'next/navigation'
-import Comments from '@/components/comment/Comments'
+import Comment from '@/components/comment/Comment'
+import person from '../../../../public/person.jpg'
 
 const BlogDetails = (ctx) => {
     const [blogDetails, setBlogDetails] = useState("")
@@ -30,7 +32,7 @@ const BlogDetails = (ctx) => {
         setComments(comments)
       }
       fetchComments()
-    }, [ctx])
+    }, [])
 
 
     useEffect(() => {
@@ -43,7 +45,7 @@ const BlogDetails = (ctx) => {
             setBlogLikes(blog?.likes?.length || 0)
         }
         session && fetchBlog()
-    }, [session, ctx])
+    }, [session])
 
     const handleDelete = async () => {
         try {
@@ -115,7 +117,7 @@ const BlogDetails = (ctx) => {
             const newComment = await res.json()
 
             setComments((prev) => {
-                return [newComment, prev]
+                return [newComment, ...prev]
             })
             
             setCommentText("")
@@ -127,7 +129,7 @@ const BlogDetails = (ctx) => {
     return (
         <div className={classes.container}>
             <div className={classes.wrapper}>
-                <Image src={blogDetails?.imageUrl} width='750' height='650' alt="" />
+                <Image src={blogDetails?.imageUrl} width='750' height='650' />
                 <div className={classes.row}>
                     <h3 className={classes.title}>{blogDetails?.title}</h3>
                     {
@@ -135,7 +137,7 @@ const BlogDetails = (ctx) => {
                             ? (
                                 <div className={classes.controls}>
                                     <Link className={classes.editButton} href={`/blog/edit/${ctx.params.id}`}>
-                                        Edit <AiFillEdit />
+                                        Edit <BsFillPencilFill />
                                     </Link>
                                     <button onClick={handleDelete} className={classes.deleteButton}>
                                         Delete
@@ -165,7 +167,7 @@ const BlogDetails = (ctx) => {
                 </div>
                 <div className={classes.commentSection}>
                     <div className={classes.commentInput}>
-                        <Image src="/person.svg" width='45' height='45' alt="" />
+                        <Image src={person} width='45' height='45' alt="" />
                         <input value={commentText} type="text" placeholder='Type message...' onChange={(e) => setCommentText(e.target.value)}/>
                         <button onClick={handleComment}>Post</button>
                     </div>
@@ -173,7 +175,7 @@ const BlogDetails = (ctx) => {
                         {
                             comments?.length > 0
                             ? comments.map((comment) => (
-                                <Comments key={comment._id} comment={comment} setComments={setComments}/>
+                                <Comment key={comment._id} comment={comment} setComments={setComments}/>
                             ))
                             : <h4 className={classes.noComments}>No comments. Be the first one to leave a comment!</h4>
                         }

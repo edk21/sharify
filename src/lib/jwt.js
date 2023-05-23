@@ -1,20 +1,21 @@
-import jwt from "jsonwebtoken"
+import jwt from 'jsonwebtoken'
 
-export function signJwtToken(payload, options = ({})) {
-    const secret = process.env.JWT_SECRET
-    const token = jwt.sign(payload, secret, options)
-
-    return token
+// signing jwt
+export function signJwtToken(payload, options = {}) {
+    const secret = process.env.JWT_SECRET;
+    const token = jwt.sign(payload, secret, options);
+    return token;
 }
 
+
+// verifying jwt
 export function verifyJwtToken(token) {
     try {
-        const secret = process.env.JWT_SECRET
-        const payload = jwt.verify(token, secret)
-
-        return payload
+        const secret = process.env.JWT_SECRET;
+        const payload = jwt.verify(token, secret);
+        return payload;
     } catch (error) {
-        console.log("Error: ", error)
-        return null
+        console.error(error);
+        return null;
     }
 }
