@@ -2,8 +2,8 @@ import React from 'react'
 import {useSession} from 'next-auth/react'
 import {format} from 'timeago.js'
 import { BsTrash } from 'react-icons/bs'
-import classes from './comment.module.css'
 import Image from 'next/image'
+import classes from "./Comment.module.css"
 
 const Comment = ({comment, setComments}) => {
   const {data: session} = useSession()
