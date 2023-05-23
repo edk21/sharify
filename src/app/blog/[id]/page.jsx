@@ -3,8 +3,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import classes from './blog.module.css'
-import { BsFillPencilFill } from 'react-icons/bs'
-import { AiFillDelete, AiFillLike, AiOutlineLike } from 'react-icons/ai'
+import { AiFillDelete, AiFillLike, AiOutlineLike, AiFillEdit } from 'react-icons/ai'
 import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -136,7 +135,7 @@ const BlogDetails = (ctx) => {
                             ? (
                                 <div className={classes.controls}>
                                     <Link className={classes.editButton} href={`/blog/edit/${ctx.params.id}`}>
-                                        Edit <BsFillPencilFill />
+                                        Edit <AiFillEdit />
                                     </Link>
                                     <button onClick={handleDelete} className={classes.deleteButton}>
                                         Delete
