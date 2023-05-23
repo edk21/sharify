@@ -2,7 +2,7 @@ import BlogCard from "@/components/blogCard/BlogCard"
 import classes from "./page.module.css"
 
 export async function fetchBlogs(){
-  const res = await fetch('http://localhost:3000/api/blog', {cache: 'no-store'})
+  const res = await fetch('https://sharify-pi.vercel.app/api/blog', {cache: 'no-store'})
 
   return res.json()
 }
